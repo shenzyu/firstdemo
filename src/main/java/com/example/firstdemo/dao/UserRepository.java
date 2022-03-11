@@ -1,0 +1,25 @@
+package com.example.firstdemo.dao;
+
+import com.example.firstdemo.bean.User;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+/**
+ * @Author: wxj
+ * @Date: 2022/2/23 11:39
+ */
+@Repository
+public interface UserRepository  extends JpaRepository<User, Integer> {
+
+    @Query(value = "select * from user where id = ?", nativeQuery=true)
+    public User getUser(Integer id);
+
+    @Query(value = "select * from user where user_name = ?", nativeQuery=true)
+    public User findByUsername(String username);
+
+      /* User findByUsernameAndPassword(String username,String password);
+
+    Page<User> findAll(Specification<User> spec, Pageable pageable);*/
+}
