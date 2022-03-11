@@ -20,7 +20,6 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @EnableJpaRepositories(basePackages = "com.example.firstdemo.dao")
 @EnableOpenApi
 public class FirstdemoApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(FirstdemoApplication.class, args);
     }
